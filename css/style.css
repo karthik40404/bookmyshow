@@ -5,6 +5,7 @@
 body {
     margin: 0;
     font-family: Arial, sans-serif;
+    overflow-x: hidden;
 }
 
 .header-container {
@@ -51,7 +52,6 @@ body {
     cursor: pointer;
     margin-right: 20px;
 }
-
 .menu-icon {
     font-size: 24px;
     cursor: pointer;
@@ -561,28 +561,31 @@ h1 {
     color:#aaa;
 }
 /* ---------------------------------------------------------------- */
-.cont2{
+.cont2 {
     display: flex;
-    background-image: url(../images/the-greatest-of-all-time.avif);
+    align-items: center;
+    justify-content: center;
     border-radius: 2px;
-    background: linear-gradient(to right, rgb(0, 0, 0), inset);
-    min-height: 25vh;   
+    background: rgba(0, 0, 0, 0.78);
+    background: linear-gradient(105deg, rgba(0, 0, 0, 0.78) 40%, rgba(42, 8, 8, 0.17) 100%),url(../images/the-greatest-of-all-time.avif); /* Modern browsers */
     background-repeat: no-repeat;
-    background-position:center ;
+    background-position: center;
     background-size: cover;
     background-attachment: scroll;
-    position: relative;
+    min-height: 25vh;   
     padding: 50px;
-    margin:0px 0px 50px 0px;
+    margin: 0 0 50px;
 }
+
 .cont2 img{
+    margin-right: 120px;
     min-width: 100px;
     height: 350px;
     
 }
 .cont21{
     margin-top: 50px;
-    margin-left: 30px;
+    margin-right: 30px;
 }
 .cont21 h1{
     color: #f5f5f5;
@@ -687,138 +690,121 @@ h1 {
   }
   /* ---------------------------------------------------- */
 
-  /* Default styles - Typically for desktop view */
-@media screen and (min-width: 1024px) {
-    /* Adjust padding and margins for desktop */
-    .header1 {
-        padding: 100px 150px;
+  @media (max-width: 768px) {
+    .header-container {
+        flex-direction: column;
+        align-items: flex-start;
     }
 
-    .cont2 {
-        padding: 50px;
+    .header-container .search-bar input {
+        width: 100%;
+        margin: 10px 0;
     }
 
-    .cont21 {
-        margin-top: 50px;
-        margin-left: 30px;
+    .recommended-movies-section .movie-card {
+        width: calc(50% - 10px);
     }
 
-    .container4, .container5, .container6 {
-        max-width: 80%;
-        margin-left: 120px; 
-        margin-top: 70px;
-        margin-bottom: 40px;
-    }
-
-    .cont41, .cont51 {
-        margin-left: 30px;
-        padding-top: 20px;
-        font-size: 30px;
-    }
-
-    .cont42, .cont52 {
-        gap: 30px;
-        margin-left: 30px;
-    }
-
-    .cont41castimg, .cont51castimg {
-        width: 10%;
-        height: 20vh;
-        margin-top: 20px;
-    }
-
-    .container6 {
-        margin-left: 10%;
+    .footer-section {
+        width: calc(50% - 20px);
     }
 }
 
-/* Mobile styles */
-@media screen and (max-width: 768px) {
-    /* Adjust padding and margins for mobile */
-    .header1 {
-        padding: 50px 20px;
+/* Mobile (480px and below) */
+@media (max-width: 480px) {
+    .header-container {
+        flex-direction: column;
+        align-items: flex-start;
     }
 
-    .cont2 {
-        padding: 20px;
+    .header-container .logo img {
+        width: 120px;
     }
 
-    .cont21 {
-        margin-top: 20px;
-        margin-left: 10px;
+    .header-container .search-bar input {
+        width: 100%;
     }
 
-    .container4, .container5, .container6 {
-        max-width: 100%;
-        margin-left: 0;
-        margin-top: 20px;
-        margin-bottom: 20px;
+    .nav-bar ul {
+        flex-direction: column;
+        align-items: flex-start;
     }
 
-    .cont41, .cont51 {
-        margin-left: 10px;
-        padding-top: 10px;
-        font-size: 24px;
+    .recommended-movies-section .movie-card {
+        width: 100%;
     }
 
-    .cont42, .cont52 {
-        gap: 10px;
-        margin-left: 10px;
-    }
-
-    .cont41castimg, .cont51castimg {
-        width: 25%;
-        height: 15vh;
-        margin-top: 10px;
-    }
-
-    .container6 {
-        margin-left: 5%;
-        padding: 10px;
+    .footer-section {
+        width: 100%;
+        text-align: center;
     }
 }
 
-/* Smaller mobile screens */
-@media screen and (max-width: 480px) {
-    .header1 {
-        padding: 20px 10px;
+@media (max-width: 1024px) {
+    .header-container {
+        flex-wrap: wrap;
     }
 
-    .cont2 {
-        padding: 10px;
-    }
-
-    .cont21 {
-        margin-top: 10px;
-        margin-left: 5px;
-    }
-
-    .container4, .container5, .container6 {
-        max-width: 100%;
-        margin-left: 0;
-        margin-top: 10px;
+    .header-container .search-bar input {
+        width: 100%;
         margin-bottom: 10px;
     }
 
-    .cont41, .cont51 {
-        margin-left: 5px;
-        padding-top: 5px;
-        font-size: 20px;
+    .header-container .location, .header-container .sign-in, .header-container .menu {
+        margin: 5px 0;
     }
 
-    .cont42, .cont52 {
-        gap: 5px;
-        margin-left: 5px;
+    .nav-bar ul {
+        flex-wrap: wrap;
+        justify-content: flex-start;
+    }
+
+    .nav-bar ul li {
+        margin: 5px 0;
+    }
+
+    .cont2 img {
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    .header-container {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .nav-bar ul {
+        flex-direction: column;
+        align-items: flex-start;
     }
 
     .cont41castimg, .cont51castimg {
-        width: 30%;
-        height: 10vh;
-        margin-top: 5px;
+        width: 100%;
     }
 
-    .container6 {
-        margin-left: 2%;
-        padding: 5px;
+    .footer-container {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+
+@media (max-width: 480px) {
+    .header-container .search-bar input {
+        width: 100%;
+    }
+
+    .nav-bar ul li a {
+        font-size: 0.9rem;
+        padding: 8px;
+    }
+
+    .cont21 h1 {
+        font-size: 1.2rem;
+    }
+
+    .footer-section {
+        width: 100%;
+        margin: 10px 0;
     }
 }
